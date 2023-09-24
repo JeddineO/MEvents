@@ -1,10 +1,10 @@
-# Mevent
+# MEvents
 
-Mevent is a web application that allows users to organize and manage events. It provides features for both event organizers and service providers. This project is divided into two main parts: the frontend and the backend.
+MEvents is a web application that allows users to organize and manage events. It provides features for both event organizers and service providers. This project is divided into two main parts: the frontend and the backend.
 
 ## Features
 
-- **User Roles**: Mevent supports two main user roles: Clients and Service Providers.
+- **User Roles**: MEvents supports two main user roles: Clients and Service Providers.
 
 - **Event Creation**: Clients can create and manage events, specifying details such as date, time, location, and services required.
 
