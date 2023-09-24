@@ -14,10 +14,10 @@ function App() {
 
       <Router>
         <Routes>
-          <Route exact path='/' element={<Main />} /> {/* Use 'element' instead of 'Component' */}
-          <Route exact path='/create' element={<CreateAccount />} /> {/* Use 'element' instead of 'Component' */}
-          <Route exact path='/Login' element={<Login />} /> {/* Use 'element' instead of 'Component' */}
-          <Route exact path='/Profil' element={<Profile />} /> {/* Use 'element' instead of 'Component' */}
+          <Route exact path='/' element={<Main />} />
+          <Route exact path='/create' element={<CreateAccount />} />
+          <Route exact path='/Login' element={<Login />} />
+          <Route exact path='/Profil' element={<Profile />} />
         </Routes>
       </Router>
     </div>
