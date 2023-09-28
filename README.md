@@ -25,40 +25,47 @@ Follow these steps to set up and run the MEvents project:
 ### Frontend
 
 1. Navigate to the `/front-end` directory:
+```
 cd front-end
-
+```
 
 2. Install dependencies:
+```
 npm install
-
+```
 
 3. Start the development server:
+```
 npm start
-
+```
 
 ### Backend
 
 1. Navigate to the `/back-end` directory:
+```
 cd back-end
-
+```
 
 2. Install Composer dependencies:
+```
 composer install
-
-
+```
 
 3. Set up your database and configure the `.env` file with your database credentials.
 
 4. Run migrations to create the database tables:
+```
 php artisan migrate
-
+```
 
 5. Generate an application key:
+```
 php artisan key:generate
-
-
+```
 
 6. Start the Laravel development server:
-7. php artisan serve
+```
+php artisan serve
+```
 
-8. The backend API will be available at `http://localhost:8000`.
+7. The backend API will be available at `http://localhost:8000`.
