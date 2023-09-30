@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Provider;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MediaRequest;
+use App\Http\Requests\OptionRequest;
 use App\Http\Requests\ServiceRequest;
 use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
@@ -22,12 +23,12 @@ class ServiceController extends Controller
         ], 200);
     }
 
-    public function store(ServiceRequest $request, MediaRequest $mediaRequest)
+    public function store(ServiceRequest $request, MediaRequest $mediaRequest, OptionRequest $optionRequest)
     {
         $serviceData = $request->validated();
         $mediasData = $mediaRequest->validated('medias');
         $service = Service::create($serviceData);
-        $service->options()->createMany($request->validate('options'));
+        $service->options()->createMany($optionRequest->validated('options'));
         $this->processMedias($mediasData, $service);
         return response()->json([
             'status' => 200,
@@ -35,13 +36,13 @@ class ServiceController extends Controller
         ], 200);
     }
 
-    public function update(ServiceRequest $request, MediaRequest $mediaRequest, Service $service)
+    public function update(ServiceRequest $request, MediaRequest $mediaRequest, OptionRequest $optionRequest, Service $service)
     {
         $serviceData = $request->validated();
         $mediasData = $mediaRequest->validated('medias');
         $service->update($serviceData);
         $service->options()->delete();
-        $service->options()->createMany($request->validate('options'));
+        $service->options()->createMany($optionRequest->validate('options'));
         $this->processMedias($mediasData, $service);
         return response()->json([
             'status' => 200,
