@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Provider\AuthController;
 use App\Http\Controllers\Provider\ProviderController;
+use App\Http\Controllers\Provider\ServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/provider/login', [AuthController::class, 'authentificate']);
+Route::post('/provider/login', [AuthController::class, 'authenticate']);
 Route::post('/provider/create', [ProviderController::class, 'store']);
 Route::get('/provider/show/{provider}', [ProviderController::class, 'show'])->middleware('provider');
+
+Route::get('/provider/services', [ServiceController::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -1,17 +1,25 @@
-import React, { Component } from "react";
+import React from "react";
+import { useLocation } from "react-router-dom";
 
-class Provider extends Component {
-  render() {
-    return (
-      <div className="py-5">
-        <div className="container">
-          <div className="row">
-            <h1>Provider</h1>
+const Provider = (props) => {
+
+  const location = useLocation();
+  const successMessage = location.state?.successMessage || '';
+
+  return (
+    <div className="py-5">
+      <div className="container">
+        {successMessage &&
+          <div className="alert alert-success" role="alert">
+            {successMessage}
           </div>
+        }
+        <div className="row">
+          <h1>Provider</h1>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Provider;

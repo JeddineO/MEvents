@@ -23,6 +23,8 @@ class Provider extends Authenticatable
         'password',
     ];
 
+    protected $guard = 'provider';
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -42,5 +44,10 @@ class Provider extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
     
 }

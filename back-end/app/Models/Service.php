@@ -14,4 +14,19 @@ class Service extends Model
         'description',
         'provider_id'
     ];
+
+    public function provider()
+    {
+        return $this->belongsTo(Provider::class);
+    }
+
+    public function options()
+    {
+        return $this->hasMany(Option::class);
+    }
+
+    public function medias()
+    {
+        return $this->hasMany(Media::class);
+    }
 }

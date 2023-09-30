@@ -157,9 +157,13 @@ return [
 
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
+         * Third Party Service Providers...
+         */
+        Illuminate\Session\SessionServiceProvider::class,
+        /*
          * Package Service Providers...
          */
-
+        
         /*
          * Application Service Providers...
          */

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 function Auth(props) {
@@ -19,6 +19,8 @@ function Auth(props) {
     });
   }
 
+  const navigate = useNavigate();
+
   const checkAuth = async (e) => {
     e.preventDefault();
     try {
@@ -26,11 +28,7 @@ function Auth(props) {
       if (response.data.status === 200) {
         setState({ ...state, serverErrors: '' });
         setState({ ...state, successMessage: response.data.message });
-        // Redirect to dashboard
-        setTimeout(() => {
-          document.location.href = '/provider/dashboard';
-        }, 1000);
-        console.log(response.data.user);
+        navigate('/provider', { state: { successMessage: response.data.message } });
       }
       // Handle the response here
     } catch (error) {
